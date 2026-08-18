@@ -2,7 +2,7 @@
 -- @author James D. Watson
 -- @version 1.0
 -- @links
---   Website https://example.com
+--   Website https://github.com/burntstore-studio/REAPER
 -- @about
 --   This script creates different tempo / time-signature markers on alternate measures. 
 --   It first prompts you for:
