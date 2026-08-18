@@ -1,0 +1,34 @@
+name: Build ReaPack Index
+
+on:
+  push:
+    branches:
+      - main # Change this to 'master' if your default branch uses the older naming convention
+
+jobs:
+  reapack-index:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Confirms the action has permission to update your repo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches full history so reapack-index can extract older versions from Git history
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Install reapack-index
+        run: gem install reapack-index
+
+      - name: Run reapack-index
+        run: |
+          reapack-index --commit --amend
+          
+      - name: Push updated index
+        run: git push origin HEAD:${{ github.ref }}
