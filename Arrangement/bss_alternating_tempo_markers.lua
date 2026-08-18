@@ -1,23 +1,27 @@
+-- @description Create different tempo / time-signature markers on alternate measures.
+-- @author James D. Watson
+-- @version 1.0
+-- @links
+--   Website https://example.com
+-- @about
+--   This script creates different tempo / time-signature markers on alternate measures. 
+--   It first prompts you for:
+--     the number of measures to work against (e.g., 100). This is silently incremented
+--       by one if you enter an odd number;
+--     the tempo for the first measure (e.g., 120);
+--     the time signature for the first measure (e.g., 4/4);
+--     the tempo for the second measure (e.g. 120);
+--     the time signature for the second measure (e.g., 3/4).
+--   After parsing your answers, it creates the markers starting on the left-hand
+--   side of the project. If you enter unexpected input (e.g., 1000 measures or
+--   a tempo of 300, or a time signature of 4/18, the script alerts you but will
+--   do it anyway. The action is undo-able.
+-- @changelog
+--   + Initial public release
 --[[
 --   +-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+-+
 --   |b|s|s| |a|l|t|e|r|n|a|t|i|n|g| |t|e|m|p|o| |m|a|r|k|e|r|s|
 --   +-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+-+
---
---   Manual installation (without ReaPack):
---     1. Open REAPER
---     2. Press "?" to show the action list
---     3. Press "New action"
---     4. Press "New ReaScript"
---     5. Give the file a name (I've called it "bss_alternating_tempo_markers.lua")
---     6. Make sure to use the ".lua" file extension.
---     7. Paste this entire file into the new window that opens
---     8. CTRL-S (Windows) or CMD-S (Mac) to save it
---     9. Now find that action in the action list (search for bss_alternating_tempo_markers")
---    10. Select the script in the action list and press "Run".
---
---  poc: james.watson.iii@gmail.com
---  doc: 17 August 2026
---  ver: 1.0
 --]]
 
 -- ################################################################################
@@ -37,7 +41,7 @@ local function check_details(msg, which, tmp, bpb, bd)
 end
 
 -- ################################################################################
-local function get_tempo_details()
+local function get_details()
     local t = "BSS Alternating Tempo Markers"
 
     local a = "Total number of alternating measures"
@@ -91,7 +95,7 @@ end
 -- ################################################################################
 local function make_alternating_tempo_markers()
 
-    local rc, n_measures, a_tempo, a_bpb, a_bd, b_tempo, b_bpb, b_bd = get_tempo_details()
+    local rc, n_measures, a_tempo, a_bpb, a_bd, b_tempo, b_bpb, b_bd = get_details()
     if rc then
 
         -- Begin undo block to bundle changes into a single Ctrl+Z action
@@ -103,7 +107,6 @@ local function make_alternating_tempo_markers()
             local tempo = use_a and a_tempo or b_tempo
             local bpb   = use_a and a_bpb or b_bpb
             local bd    = use_a and a_bd or b_bd
-
 
             --[[
             -- SetTempoTimeSigMarker API:
