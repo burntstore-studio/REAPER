@@ -3,7 +3,7 @@
 --   |b|s|s| |a|l|t|e|r|n|a|t|i|n|g| |t|e|m|p|o| |m|a|r|k|e|r|s|
 --   +-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+-+-+
 --
---   quick-and-dirty installation:
+--   Manual installation (without ReaPack):
 --     1. Open REAPER
 --     2. Press "?" to show the action list
 --     3. Press "New action"
