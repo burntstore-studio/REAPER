@@ -6,7 +6,7 @@
 -- @about
 --   Create different tempo / time-signature markers on alternate measures. 
 -- @changelog
---   + Initial public release
+--   + Modified the get_details pop-up title; added some colons to the field names.
 
 --[[ 
 --   +-+-+-+ +-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+ +-+-+-+-+
