@@ -17,7 +17,7 @@
         <source main="main">https://github.com/burntstore-studio/Arrangement/bss_add_compound_meter_tempo_and_time_signature_markers.lua</source>
       </version>
       <version name="1.2" author="James D. Watson" time="2026-08-19T16:28:44Z">
-        <changelog><![CDATA[+ Initial public release]]></changelog>
+        <changelog><![CDATA[+ Changed the prompt title, added some colons to the fields.]]></changelog>
         <source main="main">https://github.com/burntstore-studio/Arrangement/bss_add_compound_meter_tempo_and_time_signature_markers.lua</source>
       </version>
     </reapack>
