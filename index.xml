@@ -14,7 +14,7 @@
       </metadata>
       <version name="1.0" author="James D. Watson" time="2026-08-19T14:29:48Z">
         <changelog><![CDATA[+ Initial public release]]></changelog>
-        <source main="main">https://github.com/burntstore-studio/src/bss_add_compound_meter_tempo_and_time_signature_markers.lua</source>
+        <source main="main">https://raw.githubusercontent.com/burntstore-studio/REAPER/refs/heads/main/Arrangement/bss_add_compound_meter_tempo_and_time_signature_markers.lua</source>
       </version>
     </reapack>
   </category>
