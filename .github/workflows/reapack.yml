@@ -28,11 +28,11 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
-      - name: Run reapack-index help
-        run: reapack-index --help
-
       - name: Install reapack-index
         run: gem install reapack-index
+
+      - name: Run reapack-index help
+        run: reapack-index --help
 
       - name: Run reapack-index
         run: |
