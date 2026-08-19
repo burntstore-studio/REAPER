@@ -49,7 +49,7 @@ end
 
 -- ################################################################################
 local function get_details()
-    local t = "BSS Alternating Tempo Markers"
+    local t = "BSS Add Compound Meter Tempo and Time Signature Markers"
 
     local a = "Total number of alternating measures"
     local b = "1st measure tempo:,1st measure time signature"
