@@ -28,7 +28,7 @@ jobs:
 
       - name: Run reapack-index
         run: |
-          reapack-index --name "BSS Scripts" --commit --amend
+          reapack-index --rebuild --name "BSS Scripts" --commit --amend
           
       - name: Push updated index
         run: git push origin HEAD:${{ github.ref }}
