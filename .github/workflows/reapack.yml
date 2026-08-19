@@ -38,7 +38,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          reapack-index --name "BSS Scripts" --amend -C
+          reapack-index --name "BSS Scripts" 
+          reapack-index --amend --commit
           
       - name: Push updated index
         run: git push origin HEAD:${{ github.ref }}
