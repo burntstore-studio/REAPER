@@ -1,6 +1,6 @@
 -- @description Create different tempo / time-signature markers on alternate measures.
 -- @author James D. Watson
--- @version 1.0
+-- @version 1.2
 -- @links
 --   Website https://github.com/burntstore-studio/REAPER
 -- @about
@@ -52,8 +52,8 @@ local function get_details()
     local t = "BSS Add Compound Meter Tempo and Time Signature Markers"
 
     local a = "Total number of alternating measures"
-    local b = "1st measure tempo:,1st measure time signature"
-    local c = "2nd measure tempo:,2nd measure time signature" 
+    local b = "1st measure tempo:,1st measure time signature:"
+    local c = "2nd measure tempo:,2nd measure time signature:"
 
     local x = "128"
     local y = "120,4/4"
