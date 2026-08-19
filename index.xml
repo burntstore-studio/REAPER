@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1.2" name="BSS Scripts">
+<index version="1" name="BSS Scripts" commit="7d122f8be4f7c3fadc3a89011ac80f10a2ecf0a7">
   <category name="Arrangement">
     <reapack name="bss_add_compound_meter_tempo_and_time_signature_markers.lua" type="script" desc="Create different tempo / time-signature markers on alternate measures.">
       <metadata>
@@ -12,9 +12,13 @@
 ]]></description>
         <link rel="website" href="https://github.com/burntstore-studio/REAPER">Website</link>
       </metadata>
-      <version name="1.0" author="James D. Watson" time="2026-08-19T14:29:48Z">
+      <version name="1.0" author="James D. Watson" time="2026-08-19T16:15:44Z">
         <changelog><![CDATA[+ Initial public release]]></changelog>
-        <source main="main">https://raw.githubusercontent.com/burntstore-studio/REAPER/refs/heads/main/Arrangement/bss_add_compound_meter_tempo_and_time_signature_markers.lua</source>
+        <source main="main">https://github.com/burntstore-studio/Arrangement/bss_add_compound_meter_tempo_and_time_signature_markers.lua</source>
+      </version>
+      <version name="1.2" author="James D. Watson" time="2026-08-19T16:28:44Z">
+        <changelog><![CDATA[+ Initial public release]]></changelog>
+        <source main="main">https://github.com/burntstore-studio/Arrangement/bss_add_compound_meter_tempo_and_time_signature_markers.lua</source>
       </version>
     </reapack>
   </category>
