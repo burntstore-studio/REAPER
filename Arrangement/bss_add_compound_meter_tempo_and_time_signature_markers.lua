@@ -4,18 +4,7 @@
 -- @links
 --   Website https://github.com/burntstore-studio/REAPER
 -- @about
---   This script creates different tempo / time-signature markers on alternate measures. 
---   It first prompts you for:
---     the number of measures to work against (e.g., 100). This is silently incremented
---       by one if you enter an odd number;
---     the tempo for the first measure (e.g., 120);
---     the time signature for the first measure (e.g., 4/4);
---     the tempo for the second measure (e.g. 120);
---     the time signature for the second measure (e.g., 3/4).
---   After parsing your answers, it creates the markers starting on the left-hand
---   side of the project. If you enter unexpected input (e.g., 1000 measures or
---   a tempo of 300, or a time signature of 4/18, the script alerts you but will
---   do it anyway. The action is undo-able.
+--   Create different tempo / time-signature markers on alternate measures. 
 -- @changelog
 --   + Initial public release
 
@@ -26,6 +15,20 @@
 --                       +-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+
 --                       |s|i|g|n|a|t|u|r|e| |m|a|r|k|e|r|s|
 --                       +-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+
+-- Usage:
+-- You're prompted for:
+--     the number of measures to work against (e.g., 100). This is silently incremented
+--         by one if you enter an odd number;
+--     the tempo for the first measure (e.g., 120);
+--     the time signature for the first measure (e.g., 4/4);
+--     the tempo for the second measure (e.g. 120);
+--     the time signature for the second measure (e.g., 3/4).
+--   After parsing your answers, it creates the markers starting on the left-hand
+--   side of the project. If you enter unexpected input (e.g., 1000 measures or
+--   a tempo of 300, or a time signature of 4/18, the script alerts you but will
+--   do it anyway. 
+--
+-- This action is undo-able.
 --]]
 
 -- ################################################################################
