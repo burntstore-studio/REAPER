@@ -1,11 +1,12 @@
 -- @description Create different tempo / time-signature markers on alternate measures.
 -- @author James D. Watson
--- @version 1.4
+-- @version 1.5
 -- @links
 --   Website https://github.com/burntstore-studio/REAPER
 -- @about
 --   Create different tempo / time-signature markers on alternate measures. 
 -- @changelog
+--   1.5 Only move to the next closest measure if we're > epsilon from the start of a measure
 --   1.4 Curious why 1.3.1 wasn't getting installed. No changes other than this line.
 --   1.3.1 Move the edit cursor to the next closest measure before starting.
 --   1.3 Now creates markers starting from wherever the edit cursor is.
@@ -109,9 +110,16 @@ local function bss_add_compound_meter_tempo_and_time_signature_markers()
     if rc then
 
         local edit_cursor_starting_position = reaper.GetCursorPosition()
+        local beat_position, __ = reaper.TimeMap2_timeToBeats(0, edit_cursor_starting_position)
 
-        -- move the edit cursor to start of next measure (no seek)
-        reaper.Main_OnCommand(40837, 0)
+        -- if we're more than epsilon away from the start of a measure, let's 
+        -- start adding markers at the /next/ measure.
+        local epsilon = 1e-9
+        if math.abs(beat_position) > epsilon then
+            -- move the edit cursor to start of next measure (no seek)
+            reaper.Main_OnCommand(40837, 0)
+        end
+
         local edit_cursor_position = reaper.GetCursorPosition()
 
         -- Begin undo block to bundle changes into a single Ctrl+Z action
@@ -158,3 +166,4 @@ end
 -- ################################################################################
 -- do it!
 bss_add_compound_meter_tempo_and_time_signature_markers()
+
