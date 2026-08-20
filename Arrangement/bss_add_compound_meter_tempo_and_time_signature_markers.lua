@@ -1,11 +1,12 @@
 -- @description Create different tempo / time-signature markers on alternate measures.
 -- @author James D. Watson
--- @version 1.3
+-- @version 1.3.1
 -- @links
 --   Website https://github.com/burntstore-studio/REAPER
 -- @about
 --   Create different tempo / time-signature markers on alternate measures. 
 -- @changelog
+--   1.3.1 Move the edit cursor to the next closest measure before starting.
 --   1.3 Now creates markers starting from wherever the edit cursor is.
 --   1.2 Changed the prompt title and added some colons to the field names.
 --   1.0 Initial public release
@@ -106,6 +107,12 @@ local function bss_add_compound_meter_tempo_and_time_signature_markers()
     local rc, n_measures, a_tempo, a_bpb, a_bd, b_tempo, b_bpb, b_bd = get_tempo_details()
     if rc then
 
+        local edit_cursor_starting_position = reaper.GetCursorPosition()
+
+        -- move the edit cursor to start of next measure (no seek)
+        reaper.Main_OnCommand(40837, 0)
+        local edit_cursor_position = reaper.GetCursorPosition()
+
         -- Begin undo block to bundle changes into a single Ctrl+Z action
         reaper.Undo_BeginBlock()
         
@@ -134,8 +141,13 @@ local function bss_add_compound_meter_tempo_and_time_signature_markers()
             -- n.b. the documentation is vague; I had to ask Google how to
             -- interpret timepos, measurepos, and beatpos.
             --]]
-            reaper.SetTempoTimeSigMarker(nil, -1, -1.0, i_measure, 0.0, tempo, bpb, bd, false)
+            reaper.SetTempoTimeSigMarker(nil, -1, edit_cursor_position, -1, -1, tempo, bpb, bd, false)
+            -- move the edit cursor forward one measure (no seek)
+            reaper.Main_OnCommand(40839, 0)
+            edit_cursor_position = reaper.GetCursorPosition()
         end
+
+        reaper.SetEditCurPos(edit_cursor_starting_position, true, false)
 
         reaper.UpdateTimeline()
         reaper.Undo_EndBlock("bss add compound meter tempo and time signature markers", -1)
