@@ -1,11 +1,12 @@
 -- @description Create different tempo / time-signature markers on alternate measures.
 -- @author James D. Watson
--- @version 1.3.1
+-- @version 1.4
 -- @links
 --   Website https://github.com/burntstore-studio/REAPER
 -- @about
 --   Create different tempo / time-signature markers on alternate measures. 
 -- @changelog
+--   1.4 Curious why 1.3.1 wasn't getting installed. No changes other than this line.
 --   1.3.1 Move the edit cursor to the next closest measure before starting.
 --   1.3 Now creates markers starting from wherever the edit cursor is.
 --   1.2 Changed the prompt title and added some colons to the field names.
