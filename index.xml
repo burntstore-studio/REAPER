@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BSS Scripts" commit="b0878a50fd7f5e03ee83638414b1e1e070e80860">
+<index version="1" name="BSS Scripts" commit="3086ba7c1993b6689262f05b2a1ae4a46aadf5cc">
   <category name="Arrangement">
     <reapack name="bss_add_compound_meter_tempo_and_time_signature_markers.lua" type="script" desc="Create different tempo / time-signature markers on alternate measures.">
       <metadata>
@@ -35,6 +35,15 @@
       </version>
       <version name="1.4" author="James D. Watson" time="2026-08-20T05:32:12Z">
         <changelog><![CDATA[1.4 Curious why 1.3.1 wasn't getting installed. No changes other than this line.
+1.3.1 Move the edit cursor to the next closest measure before starting.
+1.3 Now creates markers starting from wherever the edit cursor is.
+1.2 Changed the prompt title and added some colons to the field names.
+1.0 Initial public release]]></changelog>
+        <source main="main">https://raw.githubusercontent.com/burntstore-studio/REAPER/refs/heads/main/Arrangement/bss_add_compound_meter_tempo_and_time_signature_markers.lua</source>
+      </version>
+      <version name="1.5" author="James D. Watson" time="2026-08-20T06:18:12Z">
+        <changelog><![CDATA[1.5 Only move to the next closest measure if we're > epsilon from the start of a measure
+1.4 Curious why 1.3.1 wasn't getting installed. No changes other than this line.
 1.3.1 Move the edit cursor to the next closest measure before starting.
 1.3 Now creates markers starting from wherever the edit cursor is.
 1.2 Changed the prompt title and added some colons to the field names.
