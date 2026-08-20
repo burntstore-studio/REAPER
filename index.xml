@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="BSS Scripts" commit="f273a1f185dc7be927a8b286c3ab57e8f2b7a025">
+<index version="1" name="BSS Scripts" commit="5cc0bfb2baa8702c5c12a5a17744386450185220">
   <category name="Arrangement">
     <reapack name="bss_add_compound_meter_tempo_and_time_signature_markers.lua" type="script" desc="Create different tempo / time-signature markers on alternate measures.">
       <metadata>
@@ -22,6 +22,12 @@
         <source main="main">https://raw.githubusercontent.com/burntstore-studio/REAPER/refs/heads/main/Arrangement/bss_add_compound_meter_tempo_and_time_signature_markers.lua</source>
       </version>
       <version name="1.3" author="James D. Watson" time="2026-08-20T05:03:39Z">
+        <changelog><![CDATA[1.3 Now creates markers starting from wherever the edit cursor is.
+1.2 Changed the prompt title and added some colons to the field names.
+1.0 Initial public release]]></changelog>
+        <source main="main">https://raw.githubusercontent.com/burntstore-studio/REAPER/refs/heads/main/Arrangement/bss_add_compound_meter_tempo_and_time_signature_markers.lua</source>
+      </version>
+      <version name="1.3.1" author="James D. Watson" time="2026-08-20T05:23:42Z">
         <changelog><![CDATA[1.3 Now creates markers starting from wherever the edit cursor is.
 1.2 Changed the prompt title and added some colons to the field names.
 1.0 Initial public release]]></changelog>
