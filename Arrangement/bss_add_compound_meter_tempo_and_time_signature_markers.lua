@@ -1,12 +1,14 @@
 -- @description Create different tempo / time-signature markers on alternate measures.
 -- @author James D. Watson
--- @version 1.2
+-- @version 1.3
 -- @links
 --   Website https://github.com/burntstore-studio/REAPER
 -- @about
 --   Create different tempo / time-signature markers on alternate measures. 
 -- @changelog
---   + Modified the get_details pop-up title; added some colons to the field names.
+--   1.3 Now creates markers starting from wherever the edit cursor is.
+--   1.2 Changed the prompt title and added some colons to the field names.
+--   1.0 Initial public release
 
 --[[ 
 --   +-+-+-+ +-+-+-+ +-+-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+ +-+-+-+-+
@@ -30,7 +32,6 @@
 --
 -- This action is undo-able.
 --]]
-
 -- ################################################################################
 local function check_details(msg, which, tmp, bpb, bd)
     if tmp > 240 then
@@ -48,7 +49,7 @@ local function check_details(msg, which, tmp, bpb, bd)
 end
 
 -- ################################################################################
-local function get_details()
+local function get_tempo_details()
     local t = "BSS Add Compound Meter Tempo and Time Signature Markers"
 
     local a = "Total number of alternating measures"
@@ -100,9 +101,9 @@ end
 
 
 -- ################################################################################
-local function make_alternating_tempo_markers()
+local function bss_add_compound_meter_tempo_and_time_signature_markers()
 
-    local rc, n_measures, a_tempo, a_bpb, a_bd, b_tempo, b_bpb, b_bd = get_details()
+    local rc, n_measures, a_tempo, a_bpb, a_bd, b_tempo, b_bpb, b_bd = get_tempo_details()
     if rc then
 
         -- Begin undo block to bundle changes into a single Ctrl+Z action
@@ -114,6 +115,7 @@ local function make_alternating_tempo_markers()
             local tempo = use_a and a_tempo or b_tempo
             local bpb   = use_a and a_bpb or b_bpb
             local bd    = use_a and a_bd or b_bd
+
 
             --[[
             -- SetTempoTimeSigMarker API:
@@ -136,10 +138,10 @@ local function make_alternating_tempo_markers()
         end
 
         reaper.UpdateTimeline()
-        reaper.Undo_EndBlock("make alternating tempo markers", -1)
+        reaper.Undo_EndBlock("bss add compound meter tempo and time signature markers", -1)
     end
 end
 
 -- ################################################################################
 -- do it!
-make_alternating_tempo_markers()
+bss_add_compound_meter_tempo_and_time_signature_markers()
